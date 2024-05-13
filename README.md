@@ -2,7 +2,7 @@
 
 ## Description
 
-This program webscrapes military data from various website and displays data in graphical/tabular format. This website is deployed at: http://3.131.168.18:8050
+This program webscrapes military data from various website and displays data in graphical/tabular format. This program is deployed on AWS via Docker at: http://3.131.168.18:8050
 
 Some notable features:
 - 3 graph types to visualize data
