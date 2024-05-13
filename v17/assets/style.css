@@ -1,0 +1,31 @@
+/* Remove the dropdown arrow */
+.Select-arrow-zone {
+    display: none !important;
+}
+
+/* Ensure the dropdown spans the full width of its container */
+.Select-control {
+    width: 100% !important;
+}
+
+/* Remove borders and box shadows to blend with the form */
+.Select-control, .Select-menu-outer {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Container CSS to ensure no padding affects the dropdown */
+.no-padding {
+    padding: 0 !important;
+}
+
+/* Full width for the dropdown */
+.full-width-dropdown {
+    width: 100% !important;  /* Ensure dropdown takes the full width */
+}
+
+/* Optional: Ensure the dropdown's container does not create space around */
+.form-select {
+    display: block;  /* Makes the select block level to fill all horizontal space */
+    width: 100%;     /* Forces the select to fill its parent's width */
+}
