@@ -2,7 +2,10 @@
 
 ## Description
 
-This program webscrapes military data from various website and displays data in graphical/tabular format. This program is deployed on AWS via Docker at: http://3.131.168.18:8050
+This program webscrapes military data from various website and displays data in graphical/tabular format. This program is deployed on AWS via Docker at: 
+http://3.131.168.18:8050
+or 
+http://militarygraph.com:8050
 
 
 Some notable features:
