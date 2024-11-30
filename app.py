@@ -439,7 +439,9 @@ async def perform_upload(n_clicks_button, n_clicks_submit, n_clicks_custom, n_cl
         # Retrieve the updated options for the dropdown
         options = [{'label': collection, 'value': collection} for collection in db.list_collection_names()]
         # Select the newest instance
-        selected_value = output_name        
+        selected_value = output_name  
+        # Close the pop-up.      
+        modal_is_open = False
 
     elif trigger_id == 'submit-instance-custom' and n_clicks_submit_custom:
         # Convert the derived_virtual_data to a DataFrame
@@ -447,7 +449,10 @@ async def perform_upload(n_clicks_button, n_clicks_submit, n_clicks_custom, n_cl
         column_hyperlinks = json.loads(store_column_hyperlinks)
         category_filter = json.loads(store_category_filter)
         output_name = await loadDatabaseCustom(db, df, category_filter, column_hyperlinks, instance_name_custom)
+        # Close the pop-up.
+        modal_is_open_custom = False
         loading_output_custom = html.Div(f"Data for {output_name} successfully saved custom table. Click elsewhere to close.")
+        
 
         # Retrieve the updated options for the dropdown
         options = [{'label': collection, 'value': collection} for collection in db.list_collection_names()]
@@ -455,13 +460,17 @@ async def perform_upload(n_clicks_button, n_clicks_submit, n_clicks_custom, n_cl
         selected_value = output_name  
 
     elif trigger_id == 'close-delete-button' and n_clicks_delete_cancel:
+        # Close the pop-up. 
         modal_is_open_delete = False
     
     elif trigger_id == 'confirm-delete-button' and n_clicks_delete_confirm:
         db[selected_collection].drop()
-        loading_output_delete = html.Div(f"Data for {selected_collection} successfully deleted. Click elsewhere to close.")
         options = [{'label': collection, 'value': collection} for collection in db.list_collection_names()]
         selected_value = '2024-All-Data'
+        # Close the pop-up. 
+        modal_is_open_delete = False
+        # If pop-up fails to close. 
+        loading_output_delete = html.Div(f"Data for {selected_collection} successfully deleted. Click elsewhere to close.")
         
 
     return loading_output, modal_is_open, instance_value, options, selected_value, loading_output_custom, modal_is_open_custom, instance_value_custom, loading_output_delete, modal_is_open_delete
