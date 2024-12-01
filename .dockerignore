@@ -1,6 +1,0 @@
-# Exclude files and directories not necessary for the Docker image
-.git
-.vscode
-__pycache__
-venv
-
